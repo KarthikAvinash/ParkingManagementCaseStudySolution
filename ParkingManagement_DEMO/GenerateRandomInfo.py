@@ -72,16 +72,9 @@ def getCardNumber():
 
 
 def getSpotNumDB():
-    mycursor = mydb.cursor()
     mydb.reconnect()
-    # Added this: ----------------------------
-    print("In getSpotNumDB()")
-    mycursor.execute("SELECT * FROM parkingspot")
-    rows = mycursor.fetchall()
-    for row in rows:
-      print(row)
-    # Remove this: ----------------------------
-
+    mycursor = mydb.cursor()
+    
     sql = "SELECT SrNum FROM ParkingLot.ParkingSpot WHERE Spot = 'Null'"
 
     mycursor.execute(sql)
